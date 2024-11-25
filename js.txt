@@ -1,0 +1,57 @@
+* <script type="text/javascript">......>we can place at head and body anywhere
+
+   <script>
+
+
+*<html>
+<head>
+<script type="text/javascript">
+     document.write("hello").....>to display text in browser..>direct ga body lo rasinattey.
+
+     window.alert("hello")....>separate window lo display avaliantey
+  
+
+   <script>
+</head>
+<body>
+
+
+<h1 id="spl"> </h1>
+
+<script type="text/javascript">
+
+   document.getElementById("spl").innerHTML="i am from inner html part";....>body lo undey edaina tag madyalo tedxt ni place cheyalantey.
+<script>
+</body>
+</html>\
+
+1. // sinle line    2.  /*     */ multiline
+
+---------------------------------------------------------------------------
+*VARIABLES: are containers which stores values
+          1.var a =2; //number        itla value assign chestey run time lo datatype decide aythey vatini "Dynamic Typed Languages" antam
+          2.var b="twg" //string
+          3.var c=true; //boolean
+          4.var d=new Array(..) //Array
+          5.var a; //undefined(if value not assigned)
+*Data Types: number,string, boolean, array, undefined,null
+
+---------------------------------------------------------------------------
+*POPUP BOXES:
+      1.window.alert("alert message")--->Alert Box   only ok button there
+      2.window.confirm("confirm message")-->Confirm Box   ok and cancel two
+      3.window.prompt("input message")-->Prompt Box take data from user
+
+      3.var name=window.prompt("pls enter ur name")
+        document.write("hello "+name+" welcome to my website")
+---------------------------------------------------------------------------
+3.Callback function: A callback is a function passed as an argument to another function.This technique allows a function to call another function.A callback function can run after another function has finished.
+2.Synchronus programming: ["I will finish later!"] Functions running in parallel with other functions are called asynchronous.A good example is JavaScript setTimeout().When using the JavaScript function setTimeout(), you can specify a callback function to be executed on time-out...
+
+Because of this, most modern asynchronous JavaScript methods don't use callbacks. Instead, in JavaScript, asynchronous programming is solved using Promises instead.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+var,let,const: var already there while js created but let and const introduced in ES6 version of js to overcome some of the limitations.
+
+
+    

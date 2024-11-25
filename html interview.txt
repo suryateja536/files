@@ -1,0 +1,87 @@
+1.Semantic tags: clearly describe the meaning of your content to browsers and developers.eg.<table>,<article>,form,footer,header,main,nav,aside,section etc. and eg of non semantic tags are div,span.
+
+2.meta tag used for responsive webpage:<meta name="viewport" content="width=device-width, initial-scale=1">...>[viewport]
+
+3.image and figure tag diff: 1.<img src="" alt="" height="500px" width=""> inline element
+                        2.The <figure> tag specifies self-contained content, like illustrations, diagrams, photos.
+                            <figure>
+                           <img src="pic_trulli.jpg" alt="Trulli" style="width:100%">
+                           <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+                           </figure> so we can add caption to this and this is new addition to html5
+4.block level and inline elements:1.block level: next line lo content vastadhi.eg. h1-h6,p,hr,li,dd,dl,dt,ol,table,ul,video,div,section,form etc
+                                  2.inline: same line lo content vastayi if previous is not block  level. eg.i,b,img,anchor(a),strong,sub,sup,br,button,input,label,span,textarea etc.
+
+5.div and span diff: 1.div: to divide the sections of the webpage and to apply style to that particular section(group).block level
+                      2.span: inline, and if we want apply style to a text of content we can use span. i want<span style='color:blue'> good</span> job
+
+6.copy right symbol: html entity name[<span>&copy</span>]      html entity number[&#169]
+
+7.html layout elements: <header>,nav,section,article,aside,footer.
+
+8.container and empty tags: 1.container tags:Container tags are generally divided into three parts, i.e., opening tag, content(which will display on the                 browser), and closing tag.eg.div,nav,span etc
+                            2.empty tags:The tags that do not contain any closing tags are known as empty tags. Empty tags contain only the opening tag but they perform some action in the webpage.eg.br,hr,img,input,link,meta,source etc.
+
+9.diffrence btn html and html5: see in net
+10.iframe: vere website ni mana webpage lo display cheydaniki use avtadhi and youtube video include cheydaniki and google maps include cheydaniki.any pdf file ni mana webpage lo include ki.
+          <iframe src="" width="" height="" frameborder="0/1" scrolling="auto/no">
+
+
+11.including fav icon: <head><title> instagram<title>  <link rel="icon" href="insta.png">  </head>
+
+12.new input types in html 5: <input type=""> eg,color,date,datetime-local,email,month,number,range,search,tel,time,url,week.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+13.diff media types supported in html:
+           Text: HTML, CSS, Plain text.Image: JPEG, PNG, GIF, SVG.Audio: MP3, OGG, WAV.Video: MP4, OGG, WebM.Application: JavaScript, JSON, XML, PDF.
+      <img src="image.jpg" alt="Example Image" type="image/jpeg">
+     <script src="script.js" type="application/javascript"></script>
+
+        <video controls>
+  <source src="video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+14.diff between canvas and svg
+
+   canvas:Raster-based: Canvas is a raster-based graphics system, meaning it draws graphics pixel by pixel.Performance: Generally faster for complex and dynamic graphics, such as games or real-time visualizations.<canvas></canvas>
+   SVG (Scalable Vector Graphics):Vector-based: SVG is a vector-based graphics system, meaning it uses mathematical equations to draw shapes.Performance: Better for static or less complex graphics, such as icons, logos, and illustrations.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+15.custom attributes
+
+   Custom attributes, also known as data attributes, allow you to store additional data on HTML elements that can be accessed later using JavaScript.To add custom attributes in your HTML, you can use the data- prefix followed by a custom name. These attributes can then be accessed using JavaScript or TypeScript in your Angular project. <div class="flex-item" data-id="1" data-name="Item 1">Item 1</div>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+16.image map
+
+
+An HTML image map allows you to define clickable areas within an image. When a user clicks on a specific area, they're directed to a designated URL or perform a specific action. This is a classic technique for creating interactive images, though it's less common in modern web design due to the flexibility of CSS and JavaScript.To create an image map, you need two HTML elements:<map>: Defines the image map and its name.<area>: Defines individual clickable areas within the image map.
+
+<img src="my_image.jpg" usemap="#myMap" alt="My Image">
+
+<map name="myMap">
+  <area shape="rect" coords="0,0,80,80" href="https://example.com" alt="Top Left Area">
+  <area shape="circle" coords="150,100,40" href="https://example.com/page2" alt="Center Circle">
+  <area shape="poly" coords="200,20,250,20,250,80,200,80" href="https://example.com/page3" alt="Bottom Right Triangle">
+</map>
+
+<img>:
+src: Specifies the image source.
+usemap: Links the image to the map element by its name.
+alt: Provides alternative text for accessibility.
+
+
+
+<map>:
+name: Gives the map a name, referenced by the usemap attribute.
+
+
+<area>:
+shape: Defines the shape of the clickable area (rect, circle, poly).
+coords: Specifies the coordinates of the clickable area.
+href: Defines the link or action for the clickable area.
+alt: Provides alternative text for accessibility.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------

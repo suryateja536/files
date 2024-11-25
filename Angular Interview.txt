@@ -1,0 +1,210 @@
+1.Dif btn Angular and Angular js.
+2.What is the latest version of angular and list some new features.
+3.what is the entry point of angular application.
+4.what is single page application
+5.what are directives and types of directives.
+6.what are pipes and its uses
+7.Different ways of component communication.
+8.what is data binding and its types.
+9.what are services and what is dependency injection.
+10.difference between component and directive.
+11.difference between ng-container and ng-template.
+12.what is content projection.
+13.what are decorators and its types.
+14.what are modules,eager vs lazy loading modules.
+15.difference between promises and observables
+16.how to provide authentication in application.
+17.what are route guards and its types.
+18.Diff btn template driven forms and reactive forms.
+19.what are life cycle hooks.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+1.Angular Js support only JavaScript whereas angular support both JavaScript and typescript. Angular js has model, view and controller architecture whereas angular has component based architecture. Angular js does not have CLI but angular have CLI tool.you can easily create components, module and other things. Angular js does not use dependency injection whereas angular use dependency injection. Not have lazy loading and have lazy loading.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.
+Angular 18
+*Experimental support for zoneless change detection
+*Angular.dev is now the new home for Angular developers
+*Material 3, deferrable views, built-in control flow are now stable and incorporate a series of improvements
+*Server-side rendering improvements such as i18n hydration support, better debugging, hydration support in Angular Material, and event replay powered by the    same library as Google Search.
+
+==========
+https://www.angularminds.com/blog/angular-13-features-and-updates
+ my project on angular 13[nov 2021]:
+*Nodejs support
+*removal of viewengine[It was responsible for compiling and rendering Angular templates into the browser's DOM.](100% ivy[ Ivy is the next-generation rendering pipeline that offers significant improvements in performance, bundle size, and developer experience.])
+*typescript update(4.4)
+*framework modifications and dependency updates
+*removal of IE 11 support[Angular officially dropped support for Internet Explorer 11 in Angular 13. This decision was made due to the declining usage of IE11 and the increasing difficulty of maintaining compatibility with its outdated technology stack.]
+*Angular CLI improvements
+*validation improvements
+*change in the angular package formate(APF)
+==============
+Angular 15:
+https://www.youtube.com/watch?v=Zsc_bVgGVlQ&list=PLKIBeLKGEbp4dnK31YyHtUCiArTiCnwrk&index=3
+Stable standalone components API: Allows building apps without Ng Modules.[eh component tho sambandam undadhu,individual component]
+we dont need app.module.ts file also which has @NgModule decorator.NgModule can be used to import other modules,exports other modules,declares components-directives-pipes,provides services-interceptors.To onvert to standalone:@component(standalone:true), and in main.ts bootstrapAllication(HomeComponent),place <app-home><app-home> in index.html.so we can render any liked component in browser using this stand alone.pipes gani emi aythey need oh avi matrame we can use.ng g c --standalone.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+3. 
+ *angular looks into the main property of the angular.json file:
+ *The main.ts file creates a browser environment and loads the module.platformBrowserDynamic().bootstrapModule(AppModule).platformBrowserDynamic() creates a browser environment and, bootstrapModule() loads the module.
+*The angular compiler looks inside the bootstrap property of the AppModule.AppModule, declared inside the app.module.ts file, consists of all the declarations of components, services, and other modules that are required by the application.bootstrap:[AppComponent]
+*The angular compiler looks into the AppComponent and initializes it.The app.component.ts file, contains the AppComponent.
+*The compiler renders the index.html file.This file loads the root component of the application (AppComponent) by using the selector (<app-root>):
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4. A Single Page Application (SPA) is a type of web application that loads and updates content dynamically without refreshing the entire page to provide smoother interface.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+5.
+DIRECTIVES: Directives are custum html attributes which tell angular to change the structure,style or behavior of the DOM elements.
+         1.Structural directives: changing the DOM layout by adding and removing DOM elements.
+                    -ngIf: we can add/remove DOM elelments based on some condition.we can use ngIF with else, or ngIf with then with else.and to use else                                   and then conditions we use <ng-template> tag.
+                    -ngFor:we can modify DOM structure.loop over an array to show data in html template.syntax:<div ngFor="let ele of array"></div>
+                    -ngSwitch:we can show or hide DOM elements based on some condition
+                            syntax: <div [ngSwitch]="expression">
+                                         <div *ngSwitchCase="value 1">...</div>
+                                         <div *ngSwitchCase="value 2">...</div>
+                                         <div *ngSwitchDefault>...</div>
+
+         2.Attribute directives: change the appearance or behavior of an element,component,or another directive.
+                    -ngClass: adds and removes a set of CSS classes.
+                    -ngStyle: adds and removes a set of HTML styles.
+                    -ngModel: adds two way data binding to an HTML form elements.
+
+         3.component directives:if we use component selector['app-root'] in a html tag. eg.<h1 app-root>
+
+         4.custom directives ng g directive changecolor
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+6.   PIPES: Used to transform data before displaying it on the browser.syntax: expression | pipename[:parameters]
+       1.built-in pipes: currency,date,decimal,json,lowercase,uppercase,percent,slice,async.
+       2.Custom pipes: to create: ng g p pipe-name then two files will created name.pipe.spec.ts,name.pipe.ts[we write custom pipe logic in this]
+
+TEMPLATE REFERENCE VARIABLE: component lo unde html file ni template antaru.html lo oka element ni teeskoni danni oka variable tho identify cheyadam <input type="text" placeholder='enter email #e> then we access like <div>{{e.placeholder}}</div>'.oka component mothanni variable tho identify cheyadam like <app-root #as></app-root>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+7. 
+COMPONENT COMMUNICATION::
+             1.child component: the selector which we used in other component then this selector component is called
+             2.parent component: to which component we place selector then that comp is called
+
+          *parent to child: by using @input() decorator in child.test="hii" in parent ts, <child [t]='test'> in parent html,@Input() t in child ts in class ,{{t}} in child html
+          *child to parent:using @output(),template reference variable,@viewChild()
+           1.@output(): by using @output() decorator in child.@output eventpass=new EventEmitter(); message="hii"; passtoparent(){this.eventpass.emit(this.message)},by use button in html of child.<child (eventpass)='var=$event'> in child html of parent or (eventpass)='updatevar($event)'.
+           2.template reference variable:<child-comp #child> in parent component and #child is the template ref var.we can access properties and methods in child comp to parent comp by using this.like {{child.name}},{{child.methodd()}}
+           3.@viewChild() decorator: import viewchild from angular,import child comp class from parent ts,use @ViewChild(childcompclass) name, in the parent component and access child methods and properties using name.
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+8.
+
+    
+
+DATA BINDING:data transfer between model and view.
+            1.one way data binding.(model/.ts---->DOM/HTML/VIEW or reverse[event binding]):
+                    -String Interpolation :using {{title}} in html page...we can use variables,funs,expressions(60*2)
+                    -Attribute binding : isdisabled=true in ts  and [disabled]=isdisabled in html
+                    -Class binding :[class]="['c1','c2']" in html h1 tag    and    .c1 and .c2 in css file
+                    -Style binding :[style]={property:var(in ts)}  ||  [style.property]=var
+                    -event binding: (events)="function()" in html and function(){} in ts file  eg:(click)
+            2.two way data binding.(both will happen simultaniously):allows to bind data to both files
+                     -ngModel ane directive ni use cheyali...banana in the box[(ngModel)]
+                     -first impost formsmodule in app.module.ts file
+                     -city:string="hyd" in ts       and   <input type="text" [(ngModel)]="city">  {{city}}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+9.
+
+   service:service is class that has data(properties) or methods.ng g s service-name.we can use this data in multiple components.we can use this in parent child communication and eh relation leni components lo kuda we can.if we create test service then imosrt that service in app.module.ts.and in providers:[testService],if we want that service in a component then go to that component ts file....>import sevice ile nd use dependency injection -> constructor(private ts:TestService){}.in service.ts.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+10.   * Components are the building blocks of an Angular application. They encapsulate the template (HTML), styles (CSS), and logic (TypeScript) for a part of the user interface.A component is defined using the @Component decorator.
+          eg.import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: './example.component.html',
+  styleUrls: ['./example.component.css']
+})
+
+     * Directives are used to manipulate the DOM. They can change the appearance, behavior, or layout of DOM elements.: A directive is defined using the @Directive decorator.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+11.
+<ng-container>
+      * Used to group elements without adding extra nodes to the DOM. The content inside is rendered directly in the DOM. Useful for applying structural directives without adding extra elements.
+              <ng-container *ngIf="isVisible">
+                  <div>Content to display when isVisible is true</div>
+                 </ng-container>
+
+<ng-template>
+      * Used to define a template that can be rendered dynamically.: The content inside is not rendered until it is explicitly instantiated.: Useful for defining reusable templates and rendering them conditionally or dynamically.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+12. Content projection. Content projection is a pattern in Angular that allows you to insert, or "project," content from a parent component into a child component. This is useful for creating reusable components that can display different content based on the context in which they are used.
+
+in parent.html..><app-child-comp>
+    <p>This content is projected from the parent component.</p>
+  </app-child-comp>
+in child.html..><ng-content></ng-content>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+13.DECORATORS:: Decorators are a core concept in Angular and are used extensively to define components, services, directives, and more.
+types of decorators in angular.
+ 1.class decorators. eg.@Component: Defines a component.@Directive: Defines a directive.@Pipe: Defines a pipe.@Injectable: Marks a class as available to be provided and injected as a dependency.@NgModule: Defines an Angular module.
+ 2.Property Decorators:@Input: @Output:@HostBinding:@ViewChild: @ViewChildren:@ContentChild:@ContentChildren:
+3.Method Decorators:@HostListener: Binds a method to a host element event.
+4.Parameter Decorators:@Inject:@Self@SkipSelf@Optional:
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+14.
+1.Modules: Group related components, directives, pipes, and services.
+ 2.Eager loading means that all the modules are loaded when the application starts. This is the default behavior in Angular.Suitable for small applications where the initial load time is not a concern.
+3.Lazy loading means that modules are loaded on demand, typically when a user navigates to a route that requires the module. This helps improve the initial load time of the application. Suitable for large applications where reducing the initial load time is important.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+15.promises: Definition: A Promise represents a single future value(nothing but log statements) that will be resolved or rejected.Eager Execution: Promises start executing immediately when they are created.Single Value: Promises handle a single value or error.Not Cancellable: Once a Promise is created, it cannot be cancelled.Methods: then(), catch(), and finally() are used to handle the resolved value or error.
+
+
+    Observables::Definition: An Observable represents a stream of values or events over time.Lazy Execution: Observables start executing only when they are subscribed to.Multiple Values: Observables can emit multiple values over time.Cancellable: Subscriptions to Observables can be cancelled using the unsubscribe() method.Methods: subscribe(), unsubscribe(), and various operators (like map, filter, merge, etc.) from RxJS are used to handle and manipulate the stream of values.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+16.
+
+    Set Up an Authentication Service: Create a service to handle authentication logic, such as logging in, logging out, and checking authentication status.Create Login and Registration Components: Create components for user login and registration.Protect Routes with Guards: Use Angular route guards to protect routes that require authentication.Store Authentication Tokens: Store authentication tokens (e.g., JWT) securely, typically in local storage or session storage.Intercept HTTP Requests: Use HTTP interceptors to add authentication tokens to outgoing HTTP requests.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+17.Route guards in Angular are used to control access to routes in an Angular application. They allow you to implement logic that determines whether a user can navigate to a particular route or not.
+uses::Asking whether to save before moving away from a view.Allow access to certain parts of the application to specific users.Validating the route parameters before navigating to route.Fetching some data before you display the component.
+
+types of route guards:1.CanActivate: Determines if a route can be activated.[oka component ki route avakamundu edaina ction perform ki]
+                      2.CanActivateChild: Determines if a child route can be activated.
+                      3.CanDeactivate: Determines if a route can be deactivated.oka comp deactive ayyi vere comp ki route aythey then
+                      4.CanLoad: Determines if a module can be loaded.
+                      5.Resolve: Pre-fetches data before activating a route.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+18.Angular provides two primary approaches for building forms: Template-Driven Forms and Reactive Forms.
+
+   Template driven forms:Simplicity: Easier to set up and understand for simple forms.HTML-centric: Most of the form logic is defined within the HTML template using directives like ngModel, ngFormControl, and ngForm.Limited Control: Less flexibility for complex form scenarios, such as dynamic form generation or advanced validation.Asynchronous Validation: Validation occurs asynchronously, which can sometimes lead to delays in user feedback.
+
+
+   Reactive Forms:Programmatic Approach: Form controls are created and managed programmatically in the component class using FormControl, FormGroup, and FormBuilder.Greater Control: Offers more flexibility and customization options for complex forms.Synchronous Validation: Validation is performed synchronously, providing immediate feedback to the user.Testability: Easier to unit test due to the separation of concerns between the template and the component logic.Dynamic Forms: Can easily create dynamic forms with changing structure or validation rules.
+
+
+
+ For simple forms, Template-Driven Forms may be sufficient, but for complex forms with dynamic behavior and advanced validation, Reactive Forms are the preferred approach.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+19.see once in copilot also.
+    1.ngOnChanges:Useful for reacting to changes in input properties.
+    2.ngOnInit: Used for component initialization, such as fetching data.
+    3.ngDoCheck:Usage: Used for custom change detection.
+    4.ngAfterContentInit:Used to perform actions after content projection.
+    5.ngAfterContentChecked:Used to perform actions after content has been checked.
+    6.ngAfterViewInit:Used to perform actions after the view has been initialized.
+    7.ngAfterViewChecked: Used to perform actions after the view has been checked.
+    8.ngOnDestroy:Usage: Used for cleanup, such as unsubscribing from observables and detaching event handlers.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------

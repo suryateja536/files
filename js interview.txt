@@ -1,0 +1,301 @@
+ *from ES6 features:: let,const,destructuring,arrow fn
+*7=="7" true, 7==="7" false, 1===true false,1==true true
+*scope: functional scope[varible ni function lo matrame access cheyagalmu then hat variable has fnal scope],global,block scope
+*var,let,const: var already there while js created but let and const introduced in ES6 version of js to overcome some of the limitations.
+*var-functional'reassign,let(reassign)-const(cant reassign,wile declare itself we initialize value)-block scope[{}]
+*if we declare a variable as var,let,const outside function then that variable has global scope.
+1.HOISTING:Hoisting is a feature that allows you to use functions and variables before they're declared. 
+       using var(undefined ane value memory lo assign avtadhi),let,const-(no value assigned in memory)ref error,function expression using var[not a fn err].
+2.log(x)-not defined, log(x) var x=10;-undefined
+3.Temporal dead zone:A zone where varibles are un-reachable
+       -I've heard that accessing let and const values before they are initialized can cause a ReferenceError         because of something called the temporal dead zone.
+4.map....>let p=arr.map((ele,i,array)=>{return ele*3}).new array lo all elements ni push chestayi
+  filter..>let p=arr.filter((ele,i,array)=>{return ele%2==0}).based on condition(true) only new array lo push chestayi
+  reduce..>result be a single value.let p=arr.reduce((accumulator,ele,i,array)=>{return accumulator+ele},0[accumulator initial value])
+  forEach vs map..>unna array lo modification ki we use forEach and it dont return the new array.but map return the new array with every element.
+------------------------------------------------------------------------------------------------------------------
+5. separate values to grouping- rest operator--->...arr that values grp as array fn sum(...arr[parameters]){}  sum(1,2,3) 
+   group of elements to separate-spread operato---->a=[1,2,3]  sum(...a)(arguments)
+
+6.destructuring in js:object ds,array ds.elements ni extract chesi variables ki assign cheydaniki ease chestadhi.
+       array:a=[1,2,3]  [x,y,z]=a
+       object:let {name,age}=obj
+7.default parameter: while we cal a function if we dont provide argument then the default param present in function used.call(10000); function call(salary,inc=5){}
+
+8.Immediately invoked function expression(IIFE): it is used to invoke a function immediately.eg.(function(){log('hii')})();  
+------------------------------------------------------------------------------------------------------------------
+9.for of and for-in loop:
+              for-of:we can iterate array[give ele] or string [give characters] for(n of array){log(n)}.we cant iterste object
+              for-in:we can iterate array or string[give indexes of chsrscters] for(n of s){log(n)} if we want values then s[n].we can iterate oobject and print keys.if we want values then log(obj[n])
+
+10.this keyword: this keyword always representa a object.if we use globally log(this) the output will be window object
+
+11.EVENT BUBBLING: It is a process that starts with the element that triggered the event and then bubbles up to the containing elements in the hierarchy.mundu child lo unna event perform chesi then same event parents lo untey adhi perform chestadi.
+
+12.event delegation: child lo annitiki same action perform ki we apply event to parent to that all.eg we apply event for ul to perform same event for li tags.
+----------------------------------------------------------------------------------------------------------------
+
+13.preventDefault(): default ga aa event jaragakunda chustadhi.like anchor tag remain default even we click.and submit button in forms[e.preventDefault():].
+                stopPropagation():event bubling jaragakunda aputadhi.child lo event aythey then parent ki vellakunda aputadhi.
+
+14.ways to create array: let nums=[1,2,3,4]; let nums=[1,2,3,4,'wert'];  let nums=[] nums[0]=100, nums[2]=200 ;
+          let nums=new Array(20,30,50)[constructor function] ; let nums=new Array(5) nums[0]=100,nums[2]=500 ;
+
+15.CALLBACK FUNCTION: A callback is a function passed as an argument to another function.A callback function can run after another function has finished.
+  HIGHER ORDER FUNCTION:A function that accepts other functions as parameters.A function that returns another function.
+------------------------------------------------------------------------------------------------------------------
+16.Unary function: if a function take only one parameter.
+
+17.Variable shadowing:if we declare variable in both outer scope(let x=20) and innerscope(let x=50) then outer scope value shadow aypoyi inner Lo value ki change aypotadhi.this concept is called.
+
+18.call,apply,bind: this keyword window object ni represent chestadhi normal ga.if function lo manam vere object ni represent cheydaniki use avtayi.if we write a function wish(),we cal the fn like below
+     1.wish.call(obj,'hello','evening')
+     2.wish.appy(obj,['hello','evening'])
+     3.bindres=wish.bind(obj,'hello','evng') it return a function with that object so call loke bindres();
+---------------------------------------------------------------------------------------------------------------
+19.const vs object.freeze:once we declare primitive data type with const then we cant reassign.but we can change parts for non primitive[array,obj].but BY USING object.freeze(arr or obj) we cant change the properties or values of array or object.
+-----------------------------------------------------------------------------------------------------------------
+20.Lexical Environment: lexical environment contains all the variables and functions in current scope and reference to its parent lexical environment.so we can access var and fn of its parent.first it check on current scope to access then checking parent scopes.
+21.CLOSURE: inner function can access variables or functons from the outer function even outer function terminated, but reverse not possible.
+22.null coalescing operator:a??b of a is null or undefined then it return b otherwise it return b.
+24.DATA TYPES:1.PRIMITIVE: number,string,boolean,null,undefined
+              2.complex o non-primitive: array,object,function
+---------------------------------------------------------------------------------------------------------------
+25.currying: currying means converting a function that takes n arguments into n functions that each take a single argument and return a function of one argument or result in case of last function.myfn(a)(b);
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+26.for(let i=0;i<=4;i++){setTimeout(function(){log(i)},i*1000)} output: 0 1 2 3 4
+   for(var i=0;i<=4;i++){setTimeout(function(){log(i)},i*1000)}  output: 5 5 5 5 5
+
+********************************************************CODING QUESTIONS***********************************************************************************
+
+1.Find the missing number in the sequence: inputs: 
+
+let arr=[1,3,4,5,6,7,8,9];
+let n=9;
+function MissingNumb(arr,n){
+    let sum=0;
+    for(ele of arr){
+        sum+=ele
+    }
+    let actualsum=n*(n+1)/2;
+    return actualsum-sum;
+}
+console.log(MissingNumb(arr,n));      0/p: 2
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+2.Find multiple missing numbers in the sequence:
+
+let arr=[1,3,4,6,7,8,9];
+let n=9;
+function findAll(arr,n){
+    let misarr=[];
+    let obj={};
+    for(num of arr){
+        obj[num]=num;
+    }
+    for(let i=1; i<=n; i++){
+        if(obj[i]==undefined){
+            misarr.push(i);
+        }
+    }
+    return misarr
+}
+ console.log(findAll(arr,n));
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+3.Remove Duplicate elements from the array:
+
+let arr=[1,9,7,3,4,6,7,8,9];
+function dup(arr){
+    let unique=[];
+    for(ele of arr){
+        if(unique.indexOf(ele)==-1){
+            unique.push(ele)
+        }
+    }
+    return unique
+}
+console.log(dup(arr));            
+
+or we can use shortcut by using Set datastructure
+
+let unique=[...new Set(arr)]
+console.log(unique);
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+4. Sort Array by even and odd Numbers.i: [9,8,6,5,2,4,1,10]  o/p:[2,4,6,8,10,1,5,9]
+
+let arr=[9,8,6,5,2,4,1,10] ;
+
+arr.sort(
+    (a,b)=>{
+        if(a%2!==b%2){
+            return a%2==0?-1:1;
+        }
+        else{
+            return a>b?1:-1;
+        }
+    })
+
+    console.log(arr);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+5. Find Longest Strings from given Array Of Strings.
+
+ 1.if in a array same length not there:
+let arr=['HTML','CSS','JAVASCRIPT'];
+let longest=arr[0];
+for(i=1;i<arr.length;i++){
+    if(longest.length<arr[i].length){
+        longest=arr[i]
+    }
+}
+console.log(longest);
+
+
+
+
+ 2.if in a array same length is there:
+ let arr=['HTML','CSS','JAVASCRIPT','JASASCRIPT'];
+let longest=arr[0].length;
+for(i=1;i<arr.length;i++){
+    if(longest<arr[i].length){
+        longest=arr[i].length
+    }
+}
+console.log(longest);
+longestarr=[];
+for(ele of arr){
+    if(ele.length==longest){
+     longestarr.push(ele)
+    }
+}
+console.log(longestarr);
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+6. Sort Array Of Strings By Word Length:
+
+let arr=['HTML','CSS','JAVASCRIPT','JASASCRIPTT','REACT'];
+//if we want in ascending order
+
+arr.sort((a,b)=>{
+    return a.length-b.length
+})
+console.log(arr);
+
+
+
+
+
+//if we want in descending order
+
+arr.sort((a,b)=>{
+    return b.length-a.length
+})
+console.log(arr);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+7.Sort Binary Array:
+
+
+let arr=[0,1,0,1,1,0,0,1,1]
+let length=arr.length;
+let zcount=0;
+for(ele of arr){
+    if(ele==0){
+        zcount+=1
+    }
+}
+for(let i=0;i<zcount;i++){
+    arr[i]=0;
+}
+for(let i=zcount; i<length;i++){
+    arr[i]=1;
+}
+console.log(arr);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+8.How To Check TwO Arras Are Equal or Not:
+
+
+let nums1=[100,200,300];
+let nums2=[100,200,300];
+function compareArray(arr1,arr2){
+    if(arr1.length != arr2.length)
+        return false
+    
+    else{
+        for(i=0;i<arr1.length;i++){
+            if(arr1[i] != arr2[i])
+                return false
+            
+        }
+        return true
+    }
+}
+
+if(compareArray(nums1,nums2)){
+    console.log('Arraysequal');
+}
+else{
+console.log('Arraysnotequal');}
+
+
+//SIMPLE METHOD TO CHECK WHETHER TWO ARRAYS ARE EQUAL OR NOT
+
+
+let x=JSON.stringify(nums1);
+let y=JSON.stringify(nums2);
+console.log(x==y);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9.Ways To Remove Duplicates From Array of objects:
+
+let products=[
+    {id:1,name:"dell laptop,price:60000"},
+    {id:2,name:"lenovo laptop",price:70000},
+    {id:3,name:"relme 8 pro", price:18000},
+    {id:4,name:"MI TV", price:18000},
+    {id:1,name:"dell laptop,price:60000"},
+    {id:2,name:"lenovo laptop",price:70000},
+
+]
+let uniqueele=[]
+let uniqueproducts=products.filter(
+    (p)=>{
+        if(uniqueele.includes(p.id)){
+            return false
+        }
+        else{
+            uniqueele.push(p.id)
+            return true
+        }
+    }
+)
+console.log(uniqueele);
+console.log(uniqueproducts);
+
+
+
+//Another method For this:
+
+
+
+let pstring=products.map(
+    JSON.stringify
+)
+let punique=new Set(pstring)
+console.log(punique);
+let set=Array.from(punique);
+console.log(set);
+let uniquepro=set.map(
+    JSON.parse
+)
+console.log(uniquepro);
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,76 @@
+https://github.com/suryateja536/Infy-Airlines-Frontend/tree/main
+
+-npm install -g @angular/cli@16 to install angular..16 is the version i learnt in training
+-ng v....to check version
+-ng new name..to create angular project
+-ng new my-app --no-standalone
+-ng g c name....to create component
+-npm install bootstrap@5.3.3....to install bootstrap..include "node_modules/bootstrap/dist/css/bootstrap.min.css" in angular.json file at styles
+-ng add @angular/material...to add angular material.
+-d:Date=new Date()..>long date with all   ,  to convert into local time d:string=new Date().toLocaleDateString().>01/05/2022 , if toLocaleTimeString...>04:27:50 PM
+-if u want to print time as seconds dynamically then Timeid= setInterval(()=>{d=new Date().toLOcaleTimeString()},1000)
+-mouse events:click,double click,mouseover,mouseout,mouse move
+-keybord events: keyup,keydown,key press
+-focus events:focus,blur,focusin,focusout
+-form events:submit,reset,change
+-for input tag we use (input)=change($event) to take value from input
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DATA BINDING:data transfer between model and view.
+            1.one way data binding.(model/.ts---->DOM/HTML/VIEW or reverse[event binding]):
+                    -String Interpolation :using {{title}} in html page...we can use variables,funs,expressions(60*2)
+                    -Attribute binding : isdisabled=true in ts  and [disabled]=isdisabled in html
+                    -Class binding :[class]="['c1','c2']" in html h1 tag    and    .c1 and .c2 in css file
+                    -Style binding :[style]={property:var(in ts)}  ||  [style.property]=var
+                    -event binding: (events)="function()" in html and function(){} in ts file  eg:(click)
+            2.two way data binding.(both will happen simultaniously):allows to bind data to both files
+                     -ngModel ane directive ni use cheyali...banana in the box[(ngModel)]
+                     -first impost formsmodule in app.module.ts file
+                     -city:string="hyd" in ts       and   <input type="text" [(ngModel)]="city">  {{city}}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DIRECTIVES: Directives are custum html attributes which tell angular to change the structure,style or behavior of the DOM elements.
+         1.Structural directives: changing the DOM layout by adding and removing DOM elements.
+                    -ngIf: we can add/remove DOM elelments based on some condition.we can use ngIF with else, or ngIf with then with else.and to use else                                   and then conditions we use <ng-template> tag.
+                    -ngFor:we can modify DOM structure.loop over an array to show data in html template.syntax:<div ngFor="let ele of array"></div>
+                    -ngSwitch:we can show or hide DOM elements based on some condition
+                            syntax: <div [ngSwitch]="expression">
+                                         <div *ngSwitchCase="value 1">...</div>
+                                         <div *ngSwitchCase="value 2">...</div>
+                                         <div *ngSwitchDefault>...</div>
+
+         2.Attribute directives: change the appearance or behavior of an element,component,or another directive.
+                    -ngClass: adds and removes a set of CSS classes.
+                    -ngStyle: adds and removes a set of HTML styles.
+                    -ngModel: adds two way data binding to an HTML form elements.
+
+         3.component directives:if we use component selector['app-root'] in a html tag. eg.<h1 app-root>
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PIPES: Used to transform data before displaying it on the browser.syntax: expression | pipename[:parameters]
+       1.built-in pipes: currency,date,decimal,json,lowercase,uppercase,percent,slice,async.
+       2.Custom pipes: to create: ng g p pipe-name then two files will created name.pipe.spec.ts,name.pipe.ts[we write custom pipe logic in this]
+
+TEMPLATE REFERENCE VARIABLE: component lo unde html file ni template antaru.html lo oka element ni teeskoni danni oka variable tho identify cheyadam <input type="text" placeholder='enter email #e> then we access like <div>{{e.placeholder}}</div>'.oka component mothanni variable tho identify cheyadam like <app-root #as></app-root>
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+COMPONENT COMMUNICATION::
+             1.child component: the selector which we used in other component then this selector component is called
+             2.parent component: to which component we place selector then that comp is called
+
+          *parent to child: by using @input() decorator in child.test="hii" in parent ts, <child [t]='test'> in parent html,@Input() t in child ts in class ,{{t}} in child html
+          *child to parent:using @output(),template reference variable,@viewChild()
+           1.@output(): by using @output() decorator in child.@output eventpass=new EventEmitter(); message="hii"; passtoparent(){this.eventpass.emit(this.message)},by use button in html of child.<child (eventpass)='var=$event'> in child html of parent or (eventpass)='updatevar($event)'.
+           2.template reference variable:<child-comp #child> in parent component and #child is the template ref var.we can access properties and methods in child comp to parent comp by using this.like {{child.name}},{{child.methodd()}}
+           3.@viewChild() decorator: import viewchild from angular,import child comp class from parent ts,use @ViewChild(childcompclass) name, in the parent component and access child methods and properties using name.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DOM MANUPULATION: html elements ni ts file lo access cheydaniki we use template ref variable and @ViewChild in ts.<div #test> in html,@ViewChild('test') d and we can access like testt(){console.log(this.d.nativeElement.style.background=blue)} , testt(){console.log(this.d.nativeElement.innerText)}
+
+       *@viewChild(): dinitho child ts lo unna data ni parent lo use cheyochu.and html elements ni ts lo access cheyochu.we can access only one element with ref var.
+       *@viewChildren():html elements ni ts lo access cheyochu.main diff is html lo multiple elements ni access cheyochu with same reference varible.this return a array in console.so by use for loop and use array cocept to access that.
+
+         

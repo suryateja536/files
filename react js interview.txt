@@ -1,0 +1,186 @@
+https://www.youtube.com/watch?v=6GPrRUqS4zI
+1.what is virtual DOM? diff betn DOM and virtual DOM.
+ * DOM (Document Object Model):  The DOM is a tree-like structure that represents the HTML structure of a web page. It's a direct representation of the elements, attributes, and content in the browser. 
+  *The Virtual DOM (VDOM) is a programming concept where a virtual representation of a UI is kept in memory and synced with the browser's DOM. This virtual representation is essentially a JavaScript object that mirrors the structure of the real DOM.
+     Initial Rendering: When a React component renders, it creates a virtual DOM tree in memory.
+     State/Props Changes: When the state or props of a component change, React creates a new virtual DOM tree.
+     Diffing Algorithm: React's efficient diffing algorithm compares the old and new virtual DOM trees to identify the minimal set of changes required to update the real DOM.
+     DOM Updates: Only the necessary changes are applied to the real DOM, minimizing the number of expensive DOM operations.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+2.what are react components? what are the main elements of it?
+   React Components: The Building Blocks of React Applications.
+                          Main Elements of a React Component:
+                         1.JSX:A syntax extension for JavaScript that allows you to write HTML-like structures directly within JavaScript code.
+                                  const greetingsn= ()=>{return( <div> <h1> hello world <h1> </div>);};
+                         2.PROPS: Short for "properties," props are used to pass data from parent components to child components.They are read-only values                                                        
+                                  They are read-only values that can be used to customize the behavior and appearance of a component.
+                                   const greetings= (props)=>{ return(<h1>hello, {props.name}</h1>);};
+                         3.State: A mechanism for managing data that changes over time within a component.State allows components to store and update their 
+                                  own data, triggering re-renders when necessary.
+                         4.Life Cycle Methods: Functions that are called at specific points in a component's lifecycle.They are used to perform actions 
+                                   like initializing state, setting up event handlers, cleaning up resources, and more.
+                                * componentDidMount(){Called after the component is mounted(inserted into the DOM) to the DOM}
+                                * componentWillUnmount(){Called before the component is unmounted from the DOM}:is a lifecycle method in React class components that is invoked immediately before a component is unmounted and destroyed. It's the final opportunity to perform any necessary cleanup tasks. etc
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+3.what is the role of JSX in react?
+   JSX, or JavaScript XML, is a syntax extension for JavaScript that allows you to write HTML-like structures directly in your JavaScript code. It's a core part of React and plays a crucial role in defining the structure of your UI.
+            Optimized Rendering:React uses a virtual DOM to efficiently update the actual DOM.JSX simplifies the process of creating and updating the virtual DOM.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4.what is arrow function expressin in jsx?
+          Arrow functions are a concise way to define functions in JavaScript. They are particularly useful in JSX when working with event handlers and passing functions as props.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+5.what is dif btn react and angular.
+    library and framework.javascript(with jsx) and typescript.virtual dom and real dom.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+6.what are state,stateless,stateful and state management terms.
+   *State:State refers to the data that a component or application holds at a specific point in time. It can be dynamic, meaning it can change over time in response to user interactions or other events.
+   *Stateless Components: These components do not have their own internal state. They render output based solely on the props passed to them. They are simpler to understand and test.
+   *Stateful Components: These components maintain their own internal state, which can change over time. They are more complex but are necessary for dynamic UIs that require user interaction and data updates.
+    *State management : is the process of managing and updating the state of a component or application. It involves:Initializing State: Setting initial values for state variables.Updating State: Changing the state in response to user actions or other events.Re-rendering: Triggering a re-render of the component to reflect the updated state.
+      --->React:Component State: Each component can manage its own state using the useState hook.Redux: A popular state management library for larger applications.
+      ---->Component State: Similar to React, Angular components can manage their own state.NgRx: A state management library inspired by Redux.
+      ----->Vue.Js: Component State: Each Vue component has its own state.Vuex: A state management library for Vue.js.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+7.what are props in jsx.
+   In React, props (short for properties) are a way to pass data from one component to another. They are similar to HTML attributes, but they are used to customize the behavior and appearance of components.Props are Read-Only: You cannot modify the value of a prop within a component.Prop Drilling: Passing props through multiple layers of components can become cumbersome. Consider using context or state management solutions for complex scenarios.Default Props: You can specify default values for props using the defaultProps property on the component:
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8.what is the role of index.js file and rectdom in react.
+            In a React application, the index.js file serves as the primary entry point. It's where the application's root component is rendered and the connection to the DOM is established.const root = ReactDOM.createRoot(document.getElementById('root'));[Creates a root element and associates it with an HTML element with the ID root in your index.html file.]  .  root.render(<App />);
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+9.what is the role of app.js file in react.[heart of ur application]
+  In a typical React application, the App.js file serves as the main component. It's the starting point for your application's UI and often acts as a container for other components.It's the top-level component of your applicationOther components can be nested within it to form the complete UI.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+10.what is Babel.
+
+   Babel is a powerful JavaScript compiler that allows developers to use the latest JavaScript features, even if they aren't fully supported by all browsers yet. It essentially translates modern JavaScript code (like ES6, ES7, etc.) into a backward-compatible version of JavaScript that older browsers can understand.Parsing: Babel first parses your code into an Abstract Syntax Tree (AST). Transformation: It then transforms the AST to a compatible version of JavaScript, applying necessary changes to syntax and features.Code Generation: Finally, Babel generates the transformed code.Syntax Transformation: Converts modern JavaScript syntax into older syntax.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------  
+11.role of fragment in jsx.
+      In React, fragments are a way to group a list of children elements without adding extra nodes to the DOM. This is particularly useful when you need to return multiple elements from a component but don't want to wrap them in a parent element like a <div>.<>    {/* Elements here */}</>.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+13.what are the types of rect components?what are functional components.
+   1.Functional Components:These are simpler components that are primarily used for rendering UI.They are defined using a function that takes props as input and returns JSX.They are often preferred for stateless components.
+   2.Class Components:These components are more complex and allow for state management and lifecycle methods.They are defined using the class keyword and extend the React.Component class.They are often used for stateful components that need to manage their own internal state and perform side effects.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+14.what is prop drilling in react?
+
+      Prop drilling refers to the practice of passing props through multiple levels of components in a React application to reach a component that needs the data. This can lead to complex component hierarchies and make code less maintainable.Complex Component Hierarchies: As the number of components and levels of nesting increases, prop drilling can lead to overly complex component structures.Tight Coupling: Components become tightly coupled, making it difficult to reuse or test them in isolation.Readability and Maintainability: Prop drilling can make code harder to read and understand, especially when dealing with deeply nested components.
+      Solution to prop drilling: 1.Context API:Provides a way to share data across multiple components without explicitly passing props through each level.2.Redux:A powerful state management library that manages global state for an entire application.It's suitable for large-scale applications with complex state management needs.3.Render Props:A technique where a component renders a function as a child, passing props to that function.Higher-Order Components (HOCs):A function that takes a component and returns a new component with additional functionality.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+15.how to pass data betn class components in react?
+
+       There are primarily two methods to pass data between class components in React:
+      1.1. Props:Parent to Child:The parent component passes data as props to its child component. The child component can then access and use this data.
+      2. Context API:Global State Management:The Context API provides a way to share data across multiple components without explicitly passing props through each level.
+     Choosing the Right Method:Props: Use props for simple data passing between parent and child components.Context API: Use Context for sharing data across multiple levels of components when props drilling becomes cumbersome. However, use it judiciously as it can make your application's state management more complex.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=b8pAPWsWIE4
+16.what is the role of rect in software development.
+    
+     React, a JavaScript library developed by Facebook, has revolutionized the way web applications are built. It's a popular choice for creating dynamic and interactive user interfaces.  Component-Based Architecture:,Virtual DOM:React uses a virtual DOM, which is a JavaScript representation of the actual DOM.Cross-Platform Development:React can be used to build not only web applications but also mobile apps (using React Native) and desktop apps (using frameworks like Electron).
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+18.what is SPA.
+
+    A Single-Page Application (SPA) is a web application that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from a server. This means that only the necessary parts of the page are updated, providing a more fluid and responsive user experience.Popular Frameworks for Building SPAs:angular,react,vue.js.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+25.how to setup react project.
+
+    npx create-react-app my-app,  Navigate to the Project Directory:cd my-app, Start the Development Server:npm start.
+                        my-app/
+                          public/
+                            index.html
+                         src/
+                            App.js
+                            index.js
+                            index.css
+                        package.json
+                        package-lock.json
+public/index.html: This file serves as the entry point for your web application. It includes a div with the ID root, where React will render your components.
+*src/App.js: This is the main component of your application. It defines the structure and behavior of your UI.
+*src/index.js: This file renders the App component to the DOM.
+*src/index.css: This file contains global styles for your application.
+*package.json: This file lists the dependencies and scripts for your project.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+26.what is npm.what is role of node_modules folder.
+         npm allows you to install packages from the npm registry, which is a vast repository of public and private packages.For example, to install React, you would run: npm install react react-dom.
+           The node_modules folder is a directory created by npm to store all the packages installed in your project. This folder contains the source code, compiled code, and other resources for each package.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+27.what is role of public folder in react.
+
+             The public Folder in React: A Repository for Static Assets.In a React project created using Create React App, the public folder serves as a container for static assets that are directly copied to the build output without going through the Webpack build process.Static Assets:HTML Files:Images:Fonts:.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+28.what is role of src folder in react.
+
+      The src folder is the core directory of a React project. It houses all the source code, including JavaScript, CSS, and other asset files that make up your application.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+32.can we have a function without return inside app.js.
+
+               Yes, you can have a function without a return statement inside App.js or any other React component.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+33.what is the role of export default inside app.js.
+
+                   In this example, the export default App; statement makes the App component the default export of the App.js file. This allows you to import it into your index.js file without specifying the name:import App from './App'; // Importing the default export
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+34.role of index.js file,reactDOM and render method in react. 
+  index.js: The Entry Point: The index.js file serves as the entry point for your React application. It's where you initialize the application, render the root component, and connect it to the DOM.
+  ReactDOM: The Bridge to the DOM: ReactDOM is a library that allows you to render React components to the DOM. It handles the process of creating, updating, and destroying DOM elements efficiently.
+    render Method: The Renderer
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+41.how do u iterate over a list in jsx.what is use of map method.
+                return (  <ul>{items.map((item) => (<li key={item.id}>{item.name}</li> ))} </ul> );
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+43.what are spread operator.
+        The spread operator (...) is a powerful feature in JavaScript that allows you to expand an iterable (like an array or object) into individual elements.
+        1. Expanding Arrays:Concatenating Arrays:const array1 = [1, 2, 3];const array2 = [4, 5, 6];const combinedArray = [...array1, ...array2]; // [1, 2, 3, 4, 5, 6].Copying Arrays:const originalArray = [1, 2, 3];const copiedArray = [...originalArray]; // [1, 2, 3].Passing Arguments to Functions:const result = sum(...[1, 2, 3]);
+       2.2. Expanding Objects:Merging Objects:const obj1 = { a: 1, b: 2 };const obj2 = { c: 3, d: 4 };const mergedObj = { ...obj1, ...obj2 }; // { a: 1, b: 2, c: 3, d: 4 }.Cloning Objects:const originalObj = { a: 1, b: 2 };const clonedObj = { ...originalObj }; // { a: 1, b: 2 }
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+44.what are the types conditional rendering in jsx.
+
+    Conditional rendering in JSX allows you to dynamically render different UI elements based on specific conditions. Here are the primary techniques:
+   1.Conditional Rendering with if and else:
+   2.Ternary Operator:
+   3.Short-Circuit Evaluation:Use logical AND (&&) or OR (||) operators to conditionally render elements.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+45. Life cycle hooks in react?
+         Lifecycle hooks are functions that are called at specific points in a component's lifecycle. They allow you to perform actions like initializing state, setting up event handlers, cleaning up resources, and more.
+           .....>Mounting Phase:
+               1.constructor():Called before a component is mounted.Used to initialize the component's state.
+               2.getDerivedStateFromProps(): Rarely used, primarily for data synchronization from props to state.
+               3.render():Required for all components.Returns the JSX representation of the component
+               4.componentDidMount(): Called after a component is mounted.Used for fetching data, setting up subscriptions, or DOM manipulations.
+          ......>Updating Phase:
+              1.getDerivedStateFromProps():Called before rendering, to determine whether any state updates are needed based on new props.
+              2.shouldComponentUpdate():Optional. Determines whether a component should re-render based on changes in props or state.
+              3.render():Called to re-render the component.
+              4.getSnapshotBeforeUpdate():Rarely used, primarily for capturing DOM information before updates.
+              5.componentDidUpdate():Called after a component is updated.Used for side effects like updating the DOM or making API calls based on new props or state.
+          ......>Unmounting Phase:
+              1.componentWillUnmount():Called before a component is unmounted.Used for cleaning up subscriptions, timers, or other resources.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+
+

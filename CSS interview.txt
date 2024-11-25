@@ -1,0 +1,168 @@
+1.How many ways to add style sheet/styles on a webpage.
+
+     There are three ways of inserting a style sheet:
+         1.External CSS :<head><link rel="stylesheet" href="mystyle.css"></head>
+         2.Internal CSS :    <style>
+                               body {
+                    background-color: linen;}
+                        h1 {
+                           color: maroon;
+                            margin-left: 40px;}
+                              </style>
+         3.Inline CSS :  <h1 style="color:blue;text-align:center;">This is a heading</h1>
+priority: 3>2,1>browser default
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+2.what are different position properties.
+
+3.what is id and class selector when to use both of them.
+4.what is CSS box model.
+5.what is cSS Specificity.
+6.diffrence between em,rem and px.
+7.Difference betn visibility:hidden and display:none.
+8.what are float properties.
+10.what is vh and vw.
+12.difference betwn inline,block and inline block.
+13.what is responsive web design.
+14.what are pseudo classes.
+15.Box size: border box vs content box.
+16.diff betn grid vs flex layout.
+17.position: obsolute vs relative.
+18.what are transformations in CSS.
+19.different css frameworks.
+20.difference betn css,sass and scss.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+2.
+
+    1.static: The default value. Elements are positioned according to the normal flow of the document. The top, right, bottom, and left properties have no effect. .static {
+      position: static;
+    }
+    2.relative: The element is positioned relative to its normal position. The top, right, bottom, and left properties will cause the element to be adjusted away from its normal position. .relative {
+      position: relative;
+      top: 10px;
+      left: 20px;
+    }
+    3.absolute: The element is positioned relative to its nearest positioned ancestor (an ancestor with a position other than static). If there is no such ancestor, it uses the initial containing block (usually the viewport). The top, right, bottom, and left properties specify the offsets from the containing block. .absolute {
+      position: absolute;
+      top: 50px;
+      left: 100px;
+    }
+    4.fixed: The element is positioned relative to the viewport, which means it stays in the same place even if the page is scrolled. The top, right, bottom, and left properties specify the offsets from the viewport. .fixed {
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
+
+    5.sticky: The element is positioned based on the user's scroll position. It toggles between relative and fixed, depending on the scroll position. The top, right, bottom, and left properties specify the offsets from the viewport when the element is in its fixed position. .sticky {
+      position: -webkit-sticky; /* For Safari */
+      position: sticky;
+      top: 0;
+    }.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+3. The id [#idname]selector is used to style a single, unique element. Each id must be unique within a page, meaning it can only be used once.The class selector[].classname is used to style multiple elements. Classes can be reused on multiple elements throughout a page.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.The CSS box model is a fundamental concept in web design and layout. It describes the rectangular boxes that are generated for elements in the document tree and how their dimensions and spacing are calculated. The box model consists of four parts:1.Content: The actual content of the box, where text and images appear.2.Padding: The space between the content and the border. Padding is transparent.3.Border: The border that surrounds the padding (if any) and content.4.Margin: The space outside the border. Margins are also transparent and can be used to create space between elements.
+.box {
+  width: 200px;
+  height: 100px;
+  border: 2px solid black;
+  padding: 10px;
+  margin: 20px;
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.CSS Specificity is a mechanism used by the browser to determine which CSS rule applies to an HTML element when multiple rules target the same element.
+
+ Inline Styles: Styles applied directly to an element using the style attribute have the highest specificity.>>IDs: Selectors with IDs (#id) have the second-highest specificity.>>Classes, Attributes, and Pseudo-classes: Selectors with classes (.class), attributes ([attribute]), and pseudo-classes (:hover, :active) have the third-highest specificity.>>Elements and Pseudo-elements: Selectors that target elements (e.g., p, div) or pseudo-elements (e.g., ::before, ::after) have the lowest specificity.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6.1.px: 	Absolute unit, fixed size
+  2.em:   Relative to parent font size                                      font-size: 16px;margin: 10px;padding: 5px; border: 1px solid black;
+  3.rem:  Relative to root font size
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+7.Visibility:hidden hides an element but keeps its space.Display:none removes an element from the document flow, affecting the layout.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8.The float property in CSS is used to position an element to the left or right of its container, allowing text and other elements to wrap around it
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+10.vh (Viewport Height):For example, height: 50vh; sets the height of an element to 50% of the viewport's height.
+   vw (Viewport Width):For example, width: 30vw; sets the width of an element to 30% of the viewport's width.
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+12.In CSS, elements can be displayed in three primary ways: inline, block, and inline-block.
+   1. Inline Elements: Do not start on a new line.Only take up the width necessary to display their content.Cannot have a defined width or height.Multiple inline elements can appear on the same line.span, a, em, strong, i, b.Line Breaks	No,Width/Height	Not Settable,Margins/Padding	Limited.
+   2. Block Elements: Start on a new line.Occupy the full width available.Can have a defined width and height.Only one block element can appear on a line.div, p, h1, h2, h3, h4, h5, h6, ul, ol, li.	Yes,Settable,Full Control
+  3.Inline-Block Elements: Behave like inline elements, but can have a defined width and height.Can be placed side-by-side on a line.Respect margins and padding like block elements.	No,Settable,	Full Control.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+13.Responsive Web Design is a web design approach that aims to create websites that look good and function well on a variety of devices and screen sizes.
+
+ Whether it's a desktop computer, tablet, or smartphone, the website should automatically adjust to fit the screen.
+
+     Key Techniques for Responsive Web Design:
+            1.Fluid Grid Layout:Uses relative units (like percentages) for layout, allowing the layout to adapt to different screen sizes.
+           2.Flexible Images:Images are resized proportionally to fit the screen without compromising quality.
+           3.CSS Media Queries:These allow you to apply specific styles based on the device's screen size, orientation, and other characteristics.
+          4.Viewport Meta Tag: This tag controls the layout viewport, ensuring the website scales appropriately on mobile devices.
+
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------
+14.Pseudo-classes are keywords added to selectors that specify a special state of the selected elements. 
+    1.:hover:Styles an element when the mouse pointer hovers over it.Often used to create hover effects on links, buttons, and other interactive elements.
+   2.Styles an element while it's being activated, typically during a mouse click or keyboard press.Commonly used to create feedback for button clicks.
+   3.:focus:Styles an element when it receives focus, usually through keyboard navigation or mouse clicks. Important for accessibility, as it helps visually indicate which element is currently active
+    4.:visited:tyles a link that has been previously visited. Often used to differentiate between visited and unvisited links.   
+
+    5.:first-child:Styles the first child element of a particular selector
+    6.:last-child:Styles the last child element of a particular selector
+     7.:nth-child(n):Styles the nth child element of a particular selector.Can be used to style every other element, every third element, etc. 
+     8.:nth-of-type(n):Styles the nth element of a specific type.For example, you can style the second paragraph on a page.
+Example:
+
+    input:focus {
+  border-color: red;
+  box-shadow: 0 0 2px blue;
+}
+
+p:first-child {
+  font-weight: bold;
+}
+
+=====================================-----------------------------------------------------------------------------------------------------------------------
+
+15.content-box: If you set an element's width to 100px, the content will be 100px wide, and any padding and border will be added to the outside of that 100px.content-box: Width and height include only the content.
+   border-box: If you set an element's width to 100px, the content, padding, and border will all fit within that 100px.border-box: Width and height include content, padding, and border.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+16.Flexbox:   One-dimensional layout: Flexbox is designed for laying out items in a single dimension (either a row or a column).Content-driven: Flexbox is best for distributing space within an item and aligning items in a container.
+
+   Grid:   Two-dimensional layout: Grid is designed for laying out items in both rows and columns.Layout-driven: Grid is best for creating complex layouts where you need to define both rows and columns.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+18. CSS transformations allow you to modify the appearance and position of an element using various transformation functions. These transformations can include rotating, scaling, skewing, and translating elements. The transform property is used to apply these transformations.rotate(): Rotates the element by a specified degree.scale(): Scales the element up or down.translate(): Moves the element from its current position.skew(): Skews the element along the X and/or Y axis.  transform: rotate(10deg); /* Rotates the element by 10 degrees */. transition: transform 0.3s ease-in-out; /* Smooth transition for the transformation */..flex-item:hover {transform: rotate(0deg); /* Resets the rotation on hover */}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+20.1.CSS (Cascading Style Sheets):Basic Syntax: CSS is the standard stylesheet language used to describe the presentation of a document written in HTML or XML.CSS: Standard stylesheet language, no advanced features.
+   2.SASS (Syntactically Awesome Style Sheets):Indentation Syntax: SASS uses indentation instead of curly braces and semicolons.SASS: Indentation-based syntax, supports advanced features.
+   3.CSS-like Syntax: SCSS is a syntax of SASS that uses CSS-like syntax with curly braces and semicolons.SCSS: CSS-like syntax, supports advanced features.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+
+
+
+

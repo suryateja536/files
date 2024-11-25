@@ -1,0 +1,94 @@
+https://www.youtube.com/watch?v=K7faV604WG4
+
+1Bootstrap: A front-end framework for building responsive and mobile-first web applications.
+2.CSS frameworks?
+3.what is grid system in bootstrap.
+4.bootstrap5 features.
+5.dif btn boot4 and boot5.
+6.display(d) classes in bootstrap.
+////////7.bootstrap modal.///////no need
+8.bootstrap card.
+9.bootstrap spacing classes.
+10.media object in bootstrap.
+11.alerts in bootstrap.
+12.collapse in bootstrap.
+13.flex classes in bootstrap.
+14.tab panel and dynamic pills in bootstrap.
+15.popover in bootstrap.
+16.which class is used to style input in bootstrap.
+17.table responsive class in bootstrap.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.Bootstrap: A front-end framework for building responsive and mobile-first web applications.Advantages: Responsive design, consistent design, ease of use, customizable, cross-browser compatibility, extensive documentation, community support, and integration with JavaScript libraries.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+2.CSS Frameworks: Libraries that provide pre-written CSS code for building responsive and visually appealing web applications.Popular Frameworks: Bootstrap, Foundation, Bulma, Tailwind CSS, Materialize, Semantic UI, UIKit.Example: Installing and using Bootstrap in an Angular project. Install Bootstrap via npm.npm install bootstrap.Step 2: Include Bootstrap in angular.json.Add the Bootstrap CSS file to the styles array in the angular.json file.Step 3: Use Bootstrap Classes in Your Components.<div class="container">.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+3.The grid system in Bootstrap is a powerful layout tool that allows developers to create responsive and flexible layouts. It is based on a 12-column grid layout, which means that the screen is divided into 12 equal columns. Developers can use these columns to create different layouts by combining them in various ways.<div class="container">
+  <div class="row">
+    <div class="col-md-4">.Container: The .container class is used to create a fixed-width container that centers the content.Row: The .row class is used to create a horizontal group of columns.Columns: The .col-md-4 class is used to create columns that span 4 out of 12 columns on medium and larger screens.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4.Bootstrap 5: A popular CSS framework with a responsive grid system, utility API, improved forms, enhanced components, and more.Installation: Install via npm and include in angular.json.Usage: Use Bootstrap classes in your Angular components for styling and layout.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+5.Bootstrap 5 introduces several improvements over Bootstrap 4, including the removal of jQuery dependency, a new utility API, redesigned form controls, and better customization options.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+6.Bootstrap provides a set of utility classes to control the display property of elements across different screen sizes. These classes allow you to easily show, hide, or modify the display behavior of elements based on the viewport width.
+
+1.Basic Display Classes:d-none: Hides an element on all screen sizes.d-inline: Displays an element inline, allowing text to wrap around it.d-inline-block: Displays an element inline-block, allowing it to be styled with margins and padding.d-block: Displays an element as a block-level element, starting on a new line.d-flex: Displays an element as a flex container.d-grid: Displays an element as a grid container.
+
+2.Responsive Display Classes:Bootstrap also offers responsive display classes that allow you to control the display of elements based on specific screen sizes. These classes use a d-{breakpoint}-{value} format, where breakpoint can be sm, md, lg, xl, or xxl, and value can be none, inline, inline-block, block, flex, or grid.
+
+eg.<div class="d-none d-md-block">
+  This element will be hidden on small screens and below, but visible on medium screens and above.
+</div>
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+8.class="card", class="card-body", class="card-title",class="card-subtitle mb-2 text-muted",class="card-text"..Card Container: The card container is created using the <div class="card" style="width: 18rem;"> element.Card Body: The card body is created using the <div class="card-body"> element.Card Title and Subtitle: The card title and subtitle are created using the <h5 class="card-title"> and <h6 class="card-subtitle mb-2 text-muted"> elements.Card Text: The card text is created using the <p class="card-text"> element.Form Controls: The input and button elements are placed inside the card body with appropriate Bootstrap classes for styling.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+9.Bootstrap provides a set of utility classes for controlling the margin and padding of elements. These classes are based on a scale from 0 to 5, where 0 represents no spacing and 5 represents the largest spacing.
+
+   1.Margin Classes:.m-0: No margin[class="m-0"],.m-1: Margin of 0.25rem,.m-2: Margin of 0.5rem,.m-3: Margin of 1rem,.m-4: Margin of 1.5rem,.m-5: Margin of 3rem.
+    Directional Margin Classes:.mt-*: Margin-top[class="mt-2"],.mb-*: Margin-bottom,.ml-*: Margin-left,.mr-*: Margin-right,.mx-*: Margin-left and margin-right (horizontal),.my-*: Margin-top and margin-bottom (vertical).
+
+    2.Padding Classes:.p-0: No padding,[same as above and use p instead of m]
+      Directional Padding Classes:.pt-*: Padding-top
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+10.<div class="media">
+  <img src="..." class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">Media heading</h5>
+    This is some content for the media object. It can be anything like text, images, etc.
+  </div>
+</div>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+11.Alert Container: The alert container is created using the <div class="alert alert-success" role="alert"> element.
+    Alert Contextual Classes:.alert-primary: Primary alert,.alert-secondary: Secondary alert,.alert-success: Success alert,.alert-danger: Danger aler,.alert-warning: Warning alert,.alert-info: Info alert,.alert-light: Light alert,.alert-dark: Dark alert.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+12.Collapse Button: The button with data-bs-toggle="collapse" and data-bs-target="#collapseExample" attributes is used to toggle the collapse.Collapsible Content: The content to be collapsed is wrapped in a <div class="collapse" id="collapseExample"> element.[ This is some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.]
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+13.A flex container is a CSS element that has its display property set to flex. This declaration transforms the element and its direct children (flex items) into a flexible layout system, allowing for dynamic and responsive arrangement of elements on a web page.
+
+    Key properties of a flex container:flex-direction:,flex-wrap:,justify-content:Aligns flex items along the main axis.,Options include flex-start, flex-end, center, space-between, and space-around.align-items:Options include stretch, flex-start, flex-end, center, and baseline.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+14.Tabs allow you to divide content into different sections, making it easy to switch between them.Pills are similar to tabs, but they appear as a series of rounded buttons. Bootstrap allows you to create dynamic pills that can be added or removed programmatically.best eg in gemini.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+15.A Bootstrap popover is a small overlay box that displays informative content when triggered by a hover, focus, or click event. It's often used to provide additional details or context about an element on a webpage.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+16.To style input fields in Bootstrap, you primarily use the form-control class. This class applies the necessary styles to create a consistent and visually appealing input field.<input type="text" class="form-control" placeholder="Enter your name">.In Bootstrap, the .form-control class is used to style input elements. This class provides a consistent look and feel for form controls, such as text inputs, textareas, and select elements.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+17.In Bootstrap, the .table-responsive class is used to make tables responsive. This class creates a horizontal scroll bar when the table overflows the container, allowing the table to be scrolled horizontally.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
